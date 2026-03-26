@@ -3,13 +3,15 @@ package exercCarros;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import exercicio1.NotaAluno;
+
 public class Carro {
 
 	// Atributos
-	String marca;
-	String modelo;
-	int ano;
-	double preco;
+	public String marca;
+	public String modelo;
+	public int ano;
+	public double preco;
 	Scanner scanner = new Scanner(System.in);
 	ArrayList<Carro> carros = new ArrayList<>();
 	
@@ -21,12 +23,18 @@ public class Carro {
     }
 	
 	public void mostraCarro() {
-		String dados = "Marca: ";
-		dados.concat(marca).concat("\n");
-		dados.concat("Modelo: ").concat(modelo).concat("\n");
-		dados.concat("Ano: ").concat(String.valueOf(ano)).concat("\n");
-		dados.concat("Preço: ").concat(Double.toString(preco)).concat("\n");
-		dados.concat("-----------------------").concat("\n");
+		System.out.println("Marca: " + marca);
+		System.out.println("Modelo: " + modelo);
+		System.out.println("Ano: " + ano);
+		System.out.println("Preço: " + preco);
+		System.out.println("------------------------");
+	}
+	
+	public void mostraRegistros() {
+		
+		for (Carro a :  carros) {
+			a.mostraCarro();
+		}
 	}
 	
 	public void registraCarro() {

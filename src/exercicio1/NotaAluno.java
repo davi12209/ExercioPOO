@@ -62,8 +62,8 @@ public class NotaAluno {
 	}
 	
 	public void mostraRegistros() {
-		
-		for (NotaAluno a : alunos) {
+									// forEach
+		for (NotaAluno a : alunos) {// variavel nota aluno, a = indice, alunos a lista que via ser percorida
 		    a.mostraAlunos();
 		}
 	}
