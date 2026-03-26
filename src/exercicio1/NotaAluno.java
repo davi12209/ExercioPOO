@@ -4,16 +4,16 @@ import java.util.Scanner;
 
 public class NotaAluno {
 	
-	public String nome;
+	public String nome;// 2
 	public float n1;
 	public float n2;
 	
 	Scanner scanner = new Scanner(System.in);
 	Calculadora calc = new Calculadora();
 	ArrayList<NotaAluno> alunos = new ArrayList<>();   // Array list para quardar as notas e nomes dos alunos
-
+							// 1
 	public NotaAluno(String nome, float n1, float n2) {
-		this.nome = nome;
+		this.nome = nome; // this aponta para este nome 2. enquanto o nome aponta para esse 1
 		this.n1 = n1;
 		this.n2 = n2;
 	}
