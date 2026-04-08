@@ -1,17 +1,17 @@
-package projetoPratico;
+package projetoPratico1;
 
 import java.util.Scanner;
 
-public class Main {
-
-    public static void main(String[] args) {
-
-        Scanner scanner = new Scanner(System.in);
-        CadastroProduto cadastro = new CadastroProduto();
-
-        int opcao;
-
-        do {
+public class ModuloProduto {
+	
+	Scanner scanner = new Scanner(System.in);
+	CadastroProduto cadastro = new CadastroProduto();
+	
+	private int opcao;
+	
+	public void ModuloProdMenu() {
+		
+		do {
 
             System.out.println("\n=== MENU ===");
             System.out.println("1 - Cadastrar produto");
@@ -40,7 +40,7 @@ public class Main {
             }
 
         } while (opcao != 3);
+		
+	}
 
-        scanner.close();
-    }
 }

@@ -1,16 +1,23 @@
-package projetoPratico;
+package projetoPratico1;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class CadastroProduto {
+	
+	private int codigo;
+	private String nome;
+	private double preco;
+	
+	
 
     public ArrayList<Produto> produtos = new ArrayList<>();
 
     // Método para verificar se o código já existe
     private boolean codigoExiste(int codigo) {
         for (Produto p : produtos) {
-            if (p.codigo == codigo) {
+            if (p.getCodigo() == codigo) {
                 return true;
             }
         }
@@ -19,10 +26,6 @@ public class CadastroProduto {
 
     public void cadastrarProduto(Scanner scanner) {
 
-        int codigo;
-        String nome;
-        double preco;
-        int quantidade;
 
         // Validação do código único
         while (true) {
@@ -67,19 +70,7 @@ public class CadastroProduto {
             }
         }
 
-        // Validação da quantidade
-        while (true) {
-            System.out.print("Digite a quantidade em estoque: ");
-            quantidade = scanner.nextInt();
-
-            if (quantidade < 0) {
-                System.out.println("Erro: Quantidade não pode ser negativa.");
-            } else {
-                break;
-            }
-        }
-
-        Produto produto = new Produto(codigo, nome, preco, quantidade);
+        Produto produto = new Produto(codigo, nome, preco);
         produtos.add(produto);
 
         System.out.println("Produto cadastrado com sucesso!");
@@ -94,10 +85,10 @@ public class CadastroProduto {
 
         for (Produto p : produtos) {
             System.out.println("--------------------");
-            System.out.println("Código: " + p.codigo);
-            System.out.println("Nome: " + p.nome);
-            System.out.println("Preço: " + p.preco);
-            System.out.println("Quantidade: " + p.quantidade);
+            System.out.println("Código: " + p.getCodigo());
+            System.out.println("Nome: " + p.getNome());
+            System.out.println("Preço: " + p.getPreco());
         }
     }
 }
+
