@@ -12,6 +12,7 @@ public class Main {
 		
 		Scanner scanner = new Scanner(System.in);
 		ModuloProduto modulo1 = new ModuloProduto();
+		ModuloCliente modulo2 = new ModuloCliente();
 		
 		
 		do {
@@ -29,7 +30,8 @@ public class Main {
 				modulo1.ModuloProdMenu();
 				
 			} else if (op.equals("2")) {
-				System.out.println("EM DESENVOLVIMENTO");
+				modulo2.menuClientes();
+				
 			} else if (op.equals("3")) {
 				System.out.println("EM DESENVOLVIMENTO");
 			} else if (op.equals("4")) {
