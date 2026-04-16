@@ -33,7 +33,9 @@ public class CadastroProduto {
             codigo = scanner.nextInt();
             scanner.nextLine();
 
-            if (codigoExiste(codigo)) {
+            //if (codigoExiste(codigo)){
+            Produto p = new Produto (codigo,"",0f);
+            if(produtos.contains(p)){
                 System.out.println("Erro: Já existe um produto com esse código.");
             } else {
                 break;
@@ -89,6 +91,12 @@ public class CadastroProduto {
             System.out.println("Nome: " + p.getNome());
             System.out.println("Preço: " + p.getPreco());
         }
+    }
+    
+    public void remover(Integer codigo) {
+    	Produto p = new Produto(codigo, "", 0l);
+    	
+    	produtos.remove(p);
     }
 }
 

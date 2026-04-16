@@ -37,17 +37,23 @@ public class CadastroCliente {
 		String email = scanner.next();
 		
 		//Validação do endereço
+		Endereco endereco = new Endereco();
+		
+		System.out.println("Digite seu bairro: ");
+		endereco.setBairro(scanner.next());
+		System.out.println("Digite sua rua");
+		endereco.setRua(scanner.next());
+		System.out.println("Digite seu numero");
+		endereco.setNumero(scanner.nextInt());
 		
 			
-		System.out.println("Digite seu endereco: ");
-		String enreco = scanner.next();
-			
-		if(enreco.isEmpty() || enreco.length() > 30) {
-			System.out.println("Cpf/Cnpj invalido!");
+		if(endereco.getRua().isEmpty() || endereco.getRua().length() > 30) {
+			System.out.println("Endereco invalido!");
 			return;
 		}
 		
-		Cliente cliente = new Cliente(nome, cpfCnpj, email, enreco);
+		Cliente cliente = new Cliente(nome, cpfCnpj, email, endereco);
+		System.out.println(cliente.getEndereco().getRua());
 		
 		clientes.add(cliente);
 		

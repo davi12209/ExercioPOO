@@ -1,19 +1,25 @@
 package projetoPratico1;
 
+import java.util.Objects;
+
 public class Cliente {
 	
 	private String nome;
 	private String cpfCnpj;
 	private String email;
-	private String endereco;
+	private Endereco endereco;
 	
-	public Cliente(String nome, String cpfCnpj, String email, String endereco) {
+	public Cliente(String nome, String cpfCnpj, String email, Endereco endereco) {
 		
 		this.nome = nome;
 		this.cpfCnpj = cpfCnpj;
 		this.email = email;
 		this.endereco = endereco;
 		
+	}
+
+	public Cliente() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getNome() {
@@ -40,11 +46,30 @@ public class Cliente {
 		this.email = email;
 	}
 
-	public String getEndereco() {
+	public Endereco getEndereco() {
 		return endereco;
 	}
 
-	public void setEndereco(String endereco) {
+	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cpfCnpj, email);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cliente other = (Cliente) obj;
+		return Objects.equals(cpfCnpj, other.cpfCnpj) && Objects.equals(email, other.email);
+	}
+	
+	
 }
