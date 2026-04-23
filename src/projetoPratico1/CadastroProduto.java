@@ -15,7 +15,7 @@ public class CadastroProduto {
     public ArrayList<Produto> produtos = new ArrayList<>();
 
     // Método para verificar se o código já existe
-    private boolean codigoExiste(int codigo) {
+    public boolean codigoExiste(int codigo) {
         for (Produto p : produtos) {
             if (p.getCodigo() == codigo) {
                 return true;
@@ -71,12 +71,40 @@ public class CadastroProduto {
                 break;
             }
         }
+        }
+        //bucas produto
+    	public void buscar() {
+    		System.out.println("BUSCA DE PRODUTO");		
+  
+    		boolean achou = false;
+    		for(Produto produto : produtos) {
+    			if(codigo == produto.getCodigo()) {
+    				System.out.println("Produto localizado...");
+    				System.out.println("Nome: " + produto.getNome());
+    				System.out.println("Codigo: " + produto.getCodigo());
+    				System.out.println("Preço r$ : " + produto.getPreco());
+    				achou = true;
+    			}
+    		}
+    		if(achou == false) {
+    			System.out.println("Produto não localizado");			
+    		}
 
         Produto produto = new Produto(codigo, nome, preco);
         produtos.add(produto);
 
         System.out.println("Produto cadastrado com sucesso!");
     }
+    	
+    	public Produto buscar(int codigo) {
+    		
+    		for(Produto produto : produtos) {
+    			if(codigo == produto.getCodigo()) {
+    				return produto;
+    			}
+    		}
+    		return null;
+    	}
 
     public void listarProdutos() {
 

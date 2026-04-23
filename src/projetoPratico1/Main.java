@@ -5,14 +5,14 @@ import java.util.Scanner;
 
 public class Main {
 	
-
+	static Scanner scanner = new Scanner(System.in);
+	static CadastroProduto cad = new CadastroProduto();
+	static ModuloProduto modulo1 = new ModuloProduto(cad);
+	static ModuloCliente modulo2 = new ModuloCliente();
+	static ModuloEstoque modulo3 = new ModuloEstoque(cad);
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		Scanner scanner = new Scanner(System.in);
-		ModuloProduto modulo1 = new ModuloProduto();
-		ModuloCliente modulo2 = new ModuloCliente();
 		
 		
 		do {
@@ -33,7 +33,8 @@ public class Main {
 				modulo2.menuClientes();
 				
 			} else if (op.equals("3")) {
-				System.out.println("EM DESENVOLVIMENTO");
+				moduloEstoque();
+				
 			} else if (op.equals("4")) {
 				System.out.println("EM DESENVOLVIMENTO");
 			} else if (op.equals("5")) {
@@ -45,6 +46,32 @@ public class Main {
 		}while(true);
 		
 		 scanner.close();
+	}
+	
+	private static void moduloEstoque() {
+		while (true) {
+			System.out.println("MODULO ESTOQUE");
+			System.out.println("1. Cadastro estoque");
+			System.out.println("2. Relatorio estoque");
+			System.out.println("3. Busca no estoque ");
+			System.out.println("4. Atualizacao no estoque");
+			System.out.println("5. Voltar");
+			String op = scanner.next();
+			if (op.equals("1")) {
+				modulo3.cadastrar();
+			} else if (op.equals("2")) {
+				modulo3.relatorio();
+			} else if (op.equals("3")) {
+				
+			} else if (op.equals("4")) {
+				
+			} else if (op.equals("5")) {
+				break;
+			} else {
+				System.out.println("opção invalida");
+			}
+		}
+		
 	}
 
 }

@@ -6,8 +6,14 @@ public class ModuloProduto {
 	
 	Scanner scanner = new Scanner(System.in);
 	CadastroProduto cadastro = new CadastroProduto();
+	private CadastroProduto cadProduto =
+			new CadastroProduto();
 	
 	private int opcao;
+	
+	public ModuloProduto(CadastroProduto cadProduto) {
+		this.cadProduto = cadProduto;
+	}
 	
 	public void ModuloProdMenu() {
 		
