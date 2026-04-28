@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class CadastroCliente {
 
-	private ArrayList<Cliente> clientes = new ArrayList();
+	private ArrayList<Cliente> clientes = new ArrayList<>();
 	private Scanner scanner = new Scanner(System.in);
 	
 	public void cadastrarCliente() {

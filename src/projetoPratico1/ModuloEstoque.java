@@ -3,25 +3,24 @@ package projetoPratico1;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import projetoPratico1.ItemEstoque;
-import projetoPratico1.Produto;
 
 public class ModuloEstoque {
-	private CadastroProduto cadProduto =
-			new CadastroProduto();
+	
+	
 	private Scanner teclado = new Scanner(System.in);
 	private ArrayList<ItemEstoque> lista =
 			new ArrayList<ItemEstoque>();
+	private CadastroProduto cad;
 	
-	public ModuloEstoque(CadastroProduto cadProduto) {
-		this.cadProduto = cadProduto;
+	public ModuloEstoque(CadastroProduto cad) {
+		this.cad = cad;
 	}
 	
 	public void cadastrar() {
 		System.out.println("CADASTRO DE ESTOQUE");
 		System.out.println("digite o codigo do produto; ");
 		int codigo = teclado.nextInt();
-		Produto produto = cadProduto.buscar(codigo);
+		Produto produto = cad.buscar(codigo);
 		if(produto == null) {
 			System.out.println("produto não encontrado");
 			return;
@@ -47,8 +46,50 @@ public class ModuloEstoque {
 		}
 	}
 	
+	public void buscar() {
+		 System.out.println("BUSCA NO ESTOQUE");
+		    System.out.print("Digite o código do produto: ");
+		    int codigo = teclado.nextInt();
+		    
+		    boolean achou = false;
+		    
+		    for(ItemEstoque item : lista) {
+		    	if(item.getProduto().getCodigo() == codigo) {
+		    		System.out.println("Produto encontrado!");
+		            System.out.println("Nome: " + item.getProduto().getNome());
+		            System.out.println("Quantidade: " + item.getQuantidade());
+		            achou = true;
+		            break;
+		    	}
+		    	if(achou == false) {
+		    		System.out.println("Produto não encontrado no estoque.");
+		    	}
+		    }
+		
+	}
 	
-	
-	
+	public void atualizar() {
+	    System.out.println("ATUALIZAÇÃO DE ESTOQUE");
+	    System.out.print("Digite o código do produto: ");
+	    int codigo = teclado.nextInt();
+
+	    for (ItemEstoque item : lista) {
+	        if (item.getProduto().getCodigo() == codigo) {
+
+	            System.out.println("Produto: " + item.getProduto().getNome());
+	            System.out.println("Quantidade atual: " + item.getQuantidade());
+
+	            System.out.print("Digite a nova quantidade: ");
+	            int novaQtd = teclado.nextInt();
+
+	            item.setQuantidade(novaQtd);
+
+	            System.out.println("Estoque atualizado com sucesso!");
+	            return;
+	        }
+	    }
+
+	    System.out.println("Produto não encontrado no estoque.");
+	}
 }
 

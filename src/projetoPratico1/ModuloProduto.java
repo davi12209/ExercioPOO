@@ -5,14 +5,13 @@ import java.util.Scanner;
 public class ModuloProduto {
 	
 	Scanner scanner = new Scanner(System.in);
-	CadastroProduto cadastro = new CadastroProduto();
-	private CadastroProduto cadProduto =
-			new CadastroProduto();
+	
+	private CadastroProduto cadastro;
 	
 	private int opcao;
 	
-	public ModuloProduto(CadastroProduto cadProduto) {
-		this.cadProduto = cadProduto;
+	public ModuloProduto(CadastroProduto cadastro) {
+		this.cadastro = cadastro;
 	}
 	
 	public void ModuloProdMenu() {
@@ -22,7 +21,9 @@ public class ModuloProduto {
             System.out.println("\n=== MENU ===");
             System.out.println("1 - Cadastrar produto");
             System.out.println("2 - Listar produtos");
-            System.out.println("3 - Sair");
+            System.out.println("3 - Buscar produto");
+            System.out.println("4 - Remover produto");
+            System.out.println("5 - Sair");
             System.out.print("Escolha uma opção: ");
 
             opcao = scanner.nextInt();
@@ -36,16 +37,24 @@ public class ModuloProduto {
                 case 2:
                     cadastro.listarProdutos();
                     break;
-
+                   
                 case 3:
-                    System.out.println("Encerrando programa...");
+                	cadastro.buscar();
+                	break;
+                	
+                case 4:
+                	System.out.println("Digite o codigo do produto");
+                    cadastro.remover(scanner.nextInt());
                     break;
+                    
+                case 5:
+                	System.out.println("Saindo do modulo");
 
                 default:
                     System.out.println("Opção inválida!");
             }
 
-        } while (opcao != 3);
+        } while (opcao != 5);
 		
 	}
 
